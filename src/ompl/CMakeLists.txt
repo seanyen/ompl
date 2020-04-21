@@ -52,7 +52,8 @@ endif()
 # Build and install the library             #
 #############################################
 if(MSVC OR IS_ICPC)
-  add_library(ompl STATIC ${OMPL_SOURCE_CODE})
+  add_library(ompl SHARED ${OMPL_SOURCE_CODE})
+  SET_TARGET_PROPERTIES(ompl PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 else(MSVC OR IS_ICPC)
   add_library(ompl SHARED ${OMPL_SOURCE_CODE})
 endif(MSVC OR IS_ICPC)
